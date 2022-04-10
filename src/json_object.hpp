@@ -30,6 +30,8 @@ public:
   std::string toString() const;
   bool is(Type) const;
   Type type() const;
+  int size() const;
+  bool contains(const std::string &) const;
 
 #pragma region json_object_overloads.cpp
   // Getters

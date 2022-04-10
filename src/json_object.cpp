@@ -229,4 +229,23 @@ const std::map<std::string, JsonObject> &JsonObject::asObject() const {
 bool JsonObject::is(Type t) const { return m_type == t; }
 
 JsonObject::Type JsonObject::type() const { return m_type; }
+
+int JsonObject::size() const {
+  switch (m_type) {
+  case Type::Array:
+    return asArray().size();
+  case Type::Object:
+    return asObject().size();
+  default:
+    throw std::runtime_error("Can only use size() with an object or an array.");
+  }
+}
+
+bool JsonObject::contains(const std::string &key) const {
+  if (m_type == Type::Object) {
+    return asObject().find(key) != asObject().end();
+  } else {
+    return false;
+  }
+}
 } // namespace json
