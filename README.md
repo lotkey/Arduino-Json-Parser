@@ -170,3 +170,24 @@ Type: `Type::Object`
 To cast a JSON `object`, you can use the following function:
 - `asObject()`: returns a `std::map<std::string, JsonObject>` where each key-value pair is a JSON property  
 Any other casting will throw a runtime error.
+
+## Errors
+
+## 'to_string'/'atof'/'atoi' is not a member of 'std'
+
+This is an issue I have run into when building for the ESP32. If you run into this error, I have implemented an easy fix. Open "stringpp.hpp" and uncomment the `#define` at the top.
+
+```cpp
+#pragma once
+
+#include <sstream>
+#include <string>
+
+// Uncomment the line below if you get 'to_string'/'atof'/'atoi' is not a member
+// of 'std'.
+// clang-format off
+#define _USE_STRINGPP
+// clang-format on
+```
+
+This macro decides whether or not to use built-in C++ string functions or functions that I have made. The `stringpp` functions use `stringstream`s, which can be slow, so they are not enabled by default.
