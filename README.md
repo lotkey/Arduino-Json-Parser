@@ -133,8 +133,8 @@ Any other casting will throw a runtime error.
 Type: `Type::Float`
 
 To cast a JSON `float`, you can use the following functions:
-- `asInt()`: returns it as-is
-- `asFloat()`: returns it as a `float`
+- `asInt()`: returns it truncated to an `int`
+- `asFloat()`: returns it as-is
 - `asBool()`: returns it as `true` if it is not equal to `0`.  
 Any other casting will throw a runtime error.
 
