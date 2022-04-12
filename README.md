@@ -1,6 +1,6 @@
 # Arduino JSON Parser
 
-I found that the ArduinoJSON library was annoying to work with, so I made my own.
+I found that the ArduinoJSON library was annoying to work with, so I made my own. It uses recursive descent to parse JSON.
 
 ## Including
 
